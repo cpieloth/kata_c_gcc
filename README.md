@@ -16,6 +16,14 @@ Overview
 * structuring code
 
 
+Target Audience/Skills
+----------------------
+
+* C rookies, students, administrators
+* Requires basic knowledge in a procedural programming language
+* CLI/shell experience is expedient
+
+
 Folders
 -------
 
