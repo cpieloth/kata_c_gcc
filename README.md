@@ -1,7 +1,7 @@
-Kata: C & GNU C compiler
+Kata: C & GNU C Compiler
 ========================
 
-An introduction into the basics of C development and the GNU C compiler.
+An introduction into the basics of C development and the GNU C Compiler.
 
 
 Overview
@@ -19,15 +19,16 @@ Overview
 Folders
 -------
 
-* instructions: guidance/entry point of this kata
-* src: source code
-* tools: code styles, helper scripts and more
+* ./instructions - guidance/entry point of this kata
+* ./src - source code
+* ./tools - code styles, helper scripts and more
 
 
 Code Style
 ----------
 
-* See template in ./tools
+* See templates in ./tools
 * Text File Encoding: UTF-8
+* Indentation: Spaces only
 * Newline: LF or \n (Unix)
 * Line Width: 120

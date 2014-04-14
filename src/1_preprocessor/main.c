@@ -1,5 +1,5 @@
 /**
- * Introduction into C preprocessor: comments, defines, header
+ * Introduction into C preprocessor: comments, defines, macros.
  *
  * \author cpieloth
  * \copyright GNU GPL v3
@@ -30,7 +30,7 @@ int main(int argc, const char* argv[])
 {
     // This comment and all other comments are removed by the C preprocessor.
 
-    // Defines are replaced by the C preprocessor
+    // Defines are replaced by the C preprocessor.
     int var = VAR_DEFAULT;
     printf("var = %d\n", var);
 
