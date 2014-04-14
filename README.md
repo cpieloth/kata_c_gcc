@@ -30,3 +30,4 @@ Code Style
 * See template in ./tools
 * Text File Encoding: UTF-8
 * Newline: LF or \n (Unix)
+* Line Width: 120
