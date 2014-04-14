@@ -10,17 +10,17 @@ help:
 	@echo '   Build (no debug log):   make release'
 	@echo '   Build (with debug log): make debug'
 	@echo '   Code after preprocessor ...'
-	@echo '      no debug log:        make release_pp'
-	@echo '      with debug log:      make debug_pp'
+	@echo '      no debug log:        make release_cpp'
+	@echo '      with debug log:      make debug_cpp'
 
 
 # Variables
 # =========
 
 CC=gcc
-POSTSRC=main.pp.c
-OBJS=main.o
-EXEC=main
+CPPSRC=preprocessor.cpp.c
+OBJS=preprocessor.o
+EXEC=preprocessor
 
 
 # Build executable
@@ -42,13 +42,13 @@ $(EXEC): $(OBJS)
 # Generate preprocessor output
 # ============================
 
-release_pp: CCFLAGS+=-DNDEBUG -E
-release_pp: $(POSTSRC)
+release_cpp: CCFLAGS+=-DNDEBUG -E
+release_cpp: $(CPPSRC)
 
-debug_pp: CCFLAGS+=-E
-debug_pp: $(POSTSRC)
+debug_cpp: CCFLAGS+=-E
+debug_cpp: $(CPPSRC)
 
-%.pp.c: %.c
+%.cpp.c: %.c
 	$(CC) $(CCFLAGS) $< > $@
 
 
@@ -56,5 +56,5 @@ debug_pp: $(POSTSRC)
 # ===========
 
 clean:
-	$(RM) *.pp.c *.o *.so *.a $(EXEC)
+	$(RM) *.cpp.c *.o *.so *.a $(EXEC)
 	
