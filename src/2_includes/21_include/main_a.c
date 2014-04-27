@@ -3,7 +3,7 @@
  * \copyright GNU GPL v3
  */
 
-#include "calculator_a.c"
+#include "calculator_a.c" // NOTE: Including source files is a bad practice in most situations.
 
 int main()
 {

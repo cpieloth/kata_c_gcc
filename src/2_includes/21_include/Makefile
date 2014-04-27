@@ -33,8 +33,8 @@ ab: main_ab.o main_ab
 	$(CC) -o $@ $<
 
 
-## Generate preprocessor output
-## ============================
+# Generate preprocessor output
+# ============================
 
 a_cpp: CCFLAGS+=-DNDEBUG -E
 a_cpp: main_a.cpp.c

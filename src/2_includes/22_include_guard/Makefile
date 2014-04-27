@@ -7,7 +7,7 @@ help:
 	@echo Commands:
 	@echo '   Print help:             make help'
 	@echo '   Clean folder:           make clean'
-	@echo '   Build main_ab::  make ab'
+	@echo '   Build main_ab:          make ab'
 	@echo '   Generate preprocessor code of ...'
 	@echo '         main_ab:          make ab_cpp'
 
@@ -30,8 +30,8 @@ ab: main_ab.o main_ab
 	$(CC) -o $@ $<
 
 
-## Generate preprocessor output
-## ============================
+# Generate preprocessor output
+# ============================
 
 ab_cpp: CCFLAGS+=-DNDEBUG -E
 ab_cpp: main_ab.cpp.c

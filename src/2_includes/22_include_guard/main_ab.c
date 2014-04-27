@@ -3,8 +3,8 @@
  * \copyright GNU GPL v3
  */
 
-#include "calculator_a.c"
-#include "calculator_b.c"
+#include "calculator_a.c" // NOTE: Including source files is a bad practice in most situations.
+#include "calculator_b.c" // NOTE: Including source files is a bad practice in most situations.
 
 int main()
 {
