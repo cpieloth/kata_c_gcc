@@ -42,7 +42,7 @@ build: main.o main
 
 build_link: calculator.o main.o calculator
 
-calculator: 
+calculator: calculator.o main.o
 	$(CC) -o $@ main.o calculator.o
 
 

@@ -31,7 +31,7 @@ compile: calculator.o algorithm.o main.o
 
 build: calculator.o algorithm.o main.o calculator
 
-calculator:
+calculator: calculator.o algorithm.o main.o
 	$(CC) -o $@ calculator.o algorithm.o main.o
 
 
