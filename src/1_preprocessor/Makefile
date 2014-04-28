@@ -56,5 +56,5 @@ debug_cpp: $(CPPSRC)
 # ===========
 
 clean:
-	$(RM) *.cpp.c *.o *.so *.a $(EXEC)
+	$(RM) *.cpp.c *.o *.so *.a $(EXEC) preprocessor1 preprocessor2
 	
