@@ -10,8 +10,8 @@ help:
 	@echo '   Build main_a:           make a'
 	@echo '   Build main_ab (error):  make ab'
 	@echo '   Generate preprocessor code of ...'
-	@echo '         main_a:           make a_cpp'
-	@echo '         main_ab:          make ab_cpp'
+	@echo '         main_a:           make a_pp'
+	@echo '         main_ab:          make ab_pp'
 
 
 # Variables
@@ -25,10 +25,10 @@ CC=gcc
 
 a: main_a.o main_a
 ab: main_ab.o main_ab
-	
+
 %.o: %.c
-	$(CC) $(CCFLAGS) -c $<
-	
+	$(CC) $(CFLAGS) -c $<
+
 %: %.o
 	$(CC) -o $@ $<
 
@@ -36,19 +36,18 @@ ab: main_ab.o main_ab
 # Generate preprocessor output
 # ============================
 
-a_cpp: CCFLAGS+=-DNDEBUG -E
-a_cpp: main_a.cpp.c
+a_pp: CFLAGS+=-DNDEBUG -E
+a_pp: main_a.pp.c
 
-ab_cpp: CCFLAGS+=-DNDEBUG -E
-ab_cpp: main_ab.cpp.c
+ab_pp: CFLAGS+=-DNDEBUG -E
+ab_pp: main_ab.pp.c
 
-%.cpp.c: %.c
-	$(CC) $(CCFLAGS) $< > $@
+%.pp.c: %.c
+	$(CC) $(CFLAGS) $< > $@
 
 
 # Clean files
 # ===========
 
 clean:
-	$(RM) *.cpp.c *.o *.so *.a main_a main_ab
-	
+	$(RM) *.pp.c *.o *.so *.a main_a main_ab
