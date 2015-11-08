@@ -18,12 +18,12 @@ The directive
 
 can be used for:
 
-1. symbolic constant: `#define PI 3.14`
-2. macro: `#define MIN(x,y) ((x<y) ? x : y)`
+1. a symbolic constant: `#define PI 3.14` or
+2. a macro: `#define MIN(x,y) ((x<y) ? x : y)`
 
 After preprocessing, every occurrence of `PI` in the source code is replaced by `3.14` and `MIN(x,y)` by `((x<y) ? x : y)`.
 
-Attention, it is just an string replacement: `MIN("3.14", 2.72)` becomes `("3.14"<2.72) ? "3.14" : 2.72`
+Attention, it is just a string replacement: `MIN("3.14", 2.72)` becomes `("3.14"<2.72) ? "3.14" : 2.72`
 In the most cases, this is not what you want ...
 
 
@@ -46,9 +46,9 @@ you can check whether a condition is true or a symbolic constant is set. This ca
 Example
 -------
 
-The following command generates the preprocessor output for `preprocessor.c` and saves it in `preprocessor.pp.c`
+The following command generates the preprocessor output for `original.c` and saves it in `preprocessed.pp.c`
 
-    $ gcc -E preprocessor.c > preprocessor.pp.c
+    $ gcc -E original.c > preprocessed.pp.c
 
 Now, have a look at:
 
@@ -76,7 +76,7 @@ After comparing the code, compile, link and run it:
 
     $ gcc -o preprocessor1 preprocessor1.pp.c
     $ ./preprocessor1
-    
+
     $ gcc -o preprocessor2 preprocessor2.pp.c
     $ ./preprocessor2
 
