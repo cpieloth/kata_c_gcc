@@ -1,7 +1,7 @@
 Includes
 ========
 
-`#include` enables the re-use of code. This statement includes code from a source or header files into a file. The include statement is processed by the preprocessor.
+`#include` enables re-use of code. This statement includes code from a source or header file into a file. The include statement is processed by the preprocessor.
 
 There are two notations:
 
@@ -40,7 +40,7 @@ Including more than one file can produces errors. Let's try to compile `main_ab.
     $ gcc -o main_ab main_ab.c
     $ gcc -o main_ab_pp main_ab.pp.c
 
-The compiler throws a error: _redefinition of ‘add’_. The compiler found two `add()` functions and can not decide which one should be used.
+The compiler throws the error: _redefinition of ‘add’_. The compiler found two `add()` functions and can not decide which one should be used.
 
 
 Example: Include Guard
