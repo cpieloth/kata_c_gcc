@@ -1,5 +1,5 @@
-Includes
-========
+2. Includes
+===========
 
 `#include` enables re-use of code. This statement includes code from a source or header file into a file. The include statement is processed by the preprocessor.
 
@@ -8,8 +8,8 @@ There are two notations:
 1. `#include <FILE>`: Is used to include external code, e.g. standard C library.
 2. `#include "FILE"`: Is usually used to include project internal  code.
 
-Example: Simple Include
------------------------
+Example 2.1: Simple Include
+---------------------------
 
 At the beginning have a look at `2_include/21_include`:
 
@@ -43,8 +43,8 @@ Including more than one file can produces errors. Let's try to compile `main_ab.
 The compiler throws the error: _redefinition of ‘add’_. The compiler found two `add()` functions and can not decide which one should be used.
 
 
-Example: Include Guard
-----------------------
+Example 2.2: Include Guard
+--------------------------
 
 The redefinition problem can be solved by using macros and is mainly used to prevent duplicated includes of header files.
 

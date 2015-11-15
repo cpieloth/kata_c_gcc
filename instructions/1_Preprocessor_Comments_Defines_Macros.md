@@ -1,5 +1,5 @@
-Preprocessor: Comments, Macros & Defines
-========================================
+1. Preprocessor: Comments, Macros & Defines
+===========================================
 
 The preprocessor is executed before compiling and produces new C source code. Preprocessor output is comparable with ordinary C code. Simplified, a text replacement with a bit of logic is done:
 
@@ -43,8 +43,8 @@ you can check whether a condition is true or a symbolic constant is set. This ca
     #endif
 
 
-Example
--------
+Example 1: Preprocessor
+-----------------------
 
 The following command generates the preprocessor output for `original.c` and saves it in `preprocessed.pp.c`
 

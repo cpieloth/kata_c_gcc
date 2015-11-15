@@ -1,12 +1,12 @@
-Header
-======
+3. Header
+=========
 
 Header files are used to separate the interface from its implementation. They contain declarations of methods, variables and types. Usually header files don't have implementation code.
 
 The code compiles, even if there is no implementation available. This is very useful for software development. All known functionality is defined by an interface respectively a header file at the beginning of a project. Each programmer can now implement an interface step by step.
 
 
-Example: Calculator
+Example 3.1: Calculator
 -------------------
 
 Start with `3_header/31_header`:
@@ -27,8 +27,8 @@ The code is compiled without problems, i.e. `main.o` is generated (What is `*.o`
     $ ./main
 
 
-Example: Calculator Conflicts
------------------------------
+Example 3.2: Calculator Conflicts
+---------------------------------
 
 Header files can raise include errors as well, e.g. `3_header/32_include_error`:
 
@@ -46,8 +46,8 @@ The compiler complains about a redefinition and conflicting types:
     $ gcc -c main.c
 
 
-Example: Calculator & Algorithm
--------------------------------
+Example 3.3: Calculator & Algorithm
+-----------------------------------
 
 The problems can be solved by using a include guard, e.g. `3_header/33_include_guard`.
 This example contains the same code like in 3.2 except that all header files have a include guard.

@@ -1,5 +1,5 @@
-Linker & Objects
-================
+4. Linker & Objects
+===================
 
 Object code is the result of compiled source code, e.g.:
 
@@ -15,8 +15,8 @@ Object files speed up the build process. Code that was not changed since the las
 Furthermore, the combination of header files (interface), object files (implementation) and the linker enables to change/link the implementation at compile time, e.g. to use hardware acceleration on target architecture or use a Linux/Windows implementation.
 
 
-Example: Calculator
--------------------
+Example 4: Calculator
+---------------------
 
 Have a look at `4_linker_objects`:
 
