@@ -25,32 +25,16 @@ compile: calculator_std.o calculator_basic.o main.o
 
 %.o: %.c
 	$(CC) $(CCFLAGS) -c $<
-	
 
-# Build std
-# =========
+std: calculator_std.o main.o
+	$(CC) -o main_std calculator_std.o main.o
 
-std: CALC = calculator_std.o
-std: clean calculator_std.o main.o calculator
-	
-
-# Build basics
-# ============
-
-basic: CALC = calculator_basic.o
-basic: clean calculator_basic.o main.o calculator
-
-
-# Build calculator
-# ================
-
-calculator: $(CALC) main.o
-	$(CC) -o $@ $(CALC) main.o
+basic: calculator_basic.o main.o
+	$(CC) -o main_basic calculator_basic.o main.o
 
 
 # Clean files
 # ===========
 
 clean:
-	$(RM) *.cpp.c *.o *.so *.a main calculator
-	
+	$(RM) -f *.o *.so *.a main_basic main_std
