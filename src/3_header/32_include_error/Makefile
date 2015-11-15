@@ -24,20 +24,17 @@ compile: calculator.o algorithm.o main.o
 
 %.o: %.c
 	$(CC) $(CCFLAGS) -c $<
-	
+
 
 # Build
 # =====
 
-build: calculator.o algorithm.o main.o calculator
-
-calculator: calculator.o algorithm.o main.o
-	$(CC) -o $@ calculator.o algorithm.o main.o
+build: calculator.o algorithm.o main.o
+	$(CC) -o main calculator.o algorithm.o main.o
 
 
 # Clean files
 # ===========
 
 clean:
-	$(RM) *.cpp.c *.o *.so *.a main calculator
-	
+	$(RM) *.o *.so *.a main

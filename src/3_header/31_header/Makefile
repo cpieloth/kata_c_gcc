@@ -7,10 +7,8 @@ help:
 	@echo Commands:
 	@echo '   Print help:        make help'
 	@echo '   Clean folder:      make clean'
-	@echo '   Build:             make build'
-	@echo '   Build & Link:      make build_link'
-	@echo '   Generate preprocessor code of ...'
-	@echo '         main:          make cpp'
+	@echo '   Compile:           make compile'
+	@echo '   Executable:        make exec'
 
 
 # Variables
@@ -18,47 +16,16 @@ help:
 
 CC=gcc
 
+%.o: %.c
+	$(CC) $(CCFLAGS) -c $<
 
-# Compile
-# =======
+%: %.o
+	$(CC) -o $@ $<
 
 compile: main.o
 
-%.o: %.c
-	$(CC) $(CCFLAGS) -c $<
-	
-%: %.o
-	$(CC) -o $@ $<
-	
-
-# Build (error)
-# =============
-
-build: main.o main
-
-
-# Build & Link
-# ============
-
-build_link: calculator.o main.o calculator
-
-calculator: calculator.o main.o
-	$(CC) -o $@ main.o calculator.o
-
-
-# Generate preprocessor output
-# ============================
-
-cpp: CCFLAGS+=-DNDEBUG -E
-cpp: main.cpp.c
-
-%.cpp.c: %.c
-	$(CC) $(CCFLAGS) $< > $@
-
-
-# Clean files
-# ===========
+exec: main.o calculator.o
+	$(CC) -o main main.o calculator.o
 
 clean:
-	$(RM) *.cpp.c *.o *.so *.a main calculator
-	
+	$(RM) *.o *.so main

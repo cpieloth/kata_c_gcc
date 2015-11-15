@@ -1,22 +1,58 @@
 Header
 ======
 
-TODO (cpieloth): translate
+Header files are used to separate the interface from its implementation. They contain declarations of methods, variables and types. Usually header files don't have implementation code.
 
-/*** Header ***/
+The code compiles, even if there is no implementation available. This is very useful for software development. All known functionality is defined by an interface respectively a header file at the beginning of a project. Each programmer can now implement an interface step by step.
 
-In Header-Dateien können Methoden-, Variablen- und Typ-Deklarationen aufgelistet werden. Header enthalten keinen oder nur wenig Code. Sie werden genutzt um Implementierungen von der Schnittstelle zu kapseln. Als Beispiel dient eine Bibliothek zur Zeitmessung. Die Datei timer.h dient dem Programmierer als Schnittstelle. In ihr sind die Methoden und Variablen definiert. Die Implementierung ist in die Datei timer.c ausgelagert, da auf Windows und Linux evt. andere Systemaufrufe zur Zeitmessung genutzt werden sollen (weiteres unter Linker & Objekt-Dateien).
 
-Beispieldateien: 3_header/*
+Example: Calculator
+-------------------
 
-Der Präprozessor fügt die Header-Datei ohne Fehler ein. Die Übersetzung schlägt fehl, da keine Implementierung angegeben ist:
-gcc -E main.c > main_pp_1.c
-meld main.c main_pp_1.c
-gcc -o main main.c /* Fehler */
-gcc -o main main.c timer.c /* Implementierung von timer.h in timer.c gefunden */
+Start with `3_header/31_header`:
 
-Wie zuvor bei include erwähnt, können Konflikte auftreten, wenn mehrere Dateien eine Header-Datei nutzen:
-gcc -o main_2 main_2.c timer.c
+* `calculator.h` defines the interface of the calculator
+* `calculator.c` implements the calculator interface
+* `main.c` uses the calculator
 
-Mit Hilfe von Makros und Bedingungen können diese Konflikte gelöst werden:
-gcc -o main_3 main_3.c timer.c 
+`calculator.h` is the interface of the calculator and can be used by everyone who needs some math.
+`main.c` can use the calculator with the help of: `#include "calculator.h"`:
+
+    $ gcc -c main.c
+    $ gcc -o main main.c
+
+The code is compiled without problems, i.e. `main.o` is generated (What is `*.o`? See lesson 4.). But the executable can not be generated, because the compiler is missing the implementation. The implementation code must be provided to the compiler:
+
+    $ gcc -o main main.c calculator.c
+    $ ./main
+
+
+Example: Calculator Conflicts
+-----------------------------
+
+Header files can raise include errors as well, e.g. `3_header/32_include_error`:
+
+* `algorithm.h` defines the interface of the algorithm and uses a struct of calculator
+* `algorithm.c` implements the algorithm interface
+* `calculator.h` defines the interface of a new calculator
+* `calculator.c` implements the calculator interface
+* `main.c` uses the algorithm and calculator
+
+The algorithm code uses some code from calculator and therefore `calculator.h` is included.
+The compiler complains about a redefinition and conflicting types:
+
+    $ gcc -c calculator.c
+    $ gcc -c algorithm.c
+    $ gcc -c main.c
+
+
+Example: Calculator & Algorithm
+-------------------------------
+
+The problems can be solved by using a include guard, e.g. `3_header/33_include_guard`.
+This example contains the same code like in 3.2 except that all header files have a include guard.
+
+    $ gcc -c calculator.c
+    $ gcc -c algorithm.c
+    $ gcc -c main.c
+    $ gcc -o main calculator.o algorithm.o main.o
