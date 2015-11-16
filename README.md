@@ -27,7 +27,7 @@ Target Audience/Skills
 Folders
 -------
 
-* ./instructions - guidance/entry point of this kata
+* ./doc - guidance/entry point of this kata
 * ./src - source code
 * ./tools - code styles, helper scripts and more
 
