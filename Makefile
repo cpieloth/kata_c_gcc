@@ -3,7 +3,9 @@ build_dir=build
 
 md2html_cmd:=pandoc -s -f markdown
 
-all:
+all: help
+
+help:
 	@echo "make doc   - Generate documentation in HTML (requires pandoc)"
 
 doc: clean
