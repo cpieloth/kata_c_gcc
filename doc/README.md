@@ -9,3 +9,4 @@ Read and work on these files:
 4. 3_Header.md
 5. 4_Linker_Objects.md
 6. 5_Modularization.md
+7. 6_Developer_Guidelines_C.md
